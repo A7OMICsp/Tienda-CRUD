@@ -1,0 +1,21 @@
+{% extends "./base.html" %} 
+{% load static %} 
+
+{% block title %} Gestión de Cursos {% endblock %} 
+
+{% block body %}
+
+<div class="card" style="width: 22rem; margin: auto">
+    <img src="../static/img/{{producto.nombre}}.png" class="card-img-top" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">{{producto.nombre}}</h5>
+        <p class="card-text">{{producto.precio}}€</p>
+        <a href="/" class="btn btn-dark" style="margin-right: 1rem">Volver</a>
+        <div style="float: right">
+            <a href="/edicionProducto/{{producto.codigo}}" class="btn btn-primary">Editar</a>
+            <a href="/eliminarProducto/{{producto.codigo}}" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

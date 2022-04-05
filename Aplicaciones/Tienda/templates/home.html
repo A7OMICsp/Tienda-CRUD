@@ -1,0 +1,23 @@
+{% extends "./base.html" %} 
+{% load static %} 
+
+{% block title %} Gestión de Cursos {% endblock %} 
+
+{% block body %}
+
+{% for c in productos %}
+<div class="card" style="width: 22rem; margin: auto; margin-bottom: 1rem">
+    <img src="../static/img/{{c.nombre}}.png" class="card-img-top" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">{{c.nombre}}</h5>
+        <p class="card-text">{{c.precio}}€</p>
+        <a href="paginaProducto/{{c.codigo}}" class="btn btn-success" style="margin-right: 1rem">Ver</a>
+        <div style="float: right">
+            <a href="/edicionProducto/{{c.codigo}}" class="btn btn-primary">Editar</a>
+            <a href="/eliminarProducto/{{c.codigo}}" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

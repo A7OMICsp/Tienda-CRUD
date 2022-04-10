@@ -11,4 +11,5 @@ urlpatterns = [
     path('eliminarProducto/<codigo>', views.eliminarProducto),
     path('paginaProducto/<codigo>', views.visualizarProducto),
     path('buscarProducto/', views.buscarProducto),
+    path('paginaAyuda/', views.paginaAyuda)
 ]

@@ -17,8 +17,9 @@ def registrarProducto(request):
     codigo = request.POST['txtCodigo']
     nombre = request.POST['txtNombre']
     precio = request.POST['numPrecio']
+    descripcion = request.POST['txtDescripcion']
 
-    producto = Producto.objects.create(codigo=codigo, nombre=nombre, precio=precio)
+    producto = Producto.objects.create(codigo=codigo, nombre=nombre, precio=precio, descripcion=descripcion)
     return redirect('/gestionCursos/')
 
 def edicionProducto(request, codigo):
@@ -30,10 +31,12 @@ def editarProducto(request):
     codigo = request.POST['txtCodigo']
     nombre = request.POST['txtNombre']
     precio = request.POST['numPrecio']
+    descripcion = request.POST['txtDescripcion']
 
     producto = Producto.objects.get(codigo=codigo)
     producto.nombre = nombre
     producto.precio = precio
+    producto.descripcion = descripcion
     producto.save()
 
     return redirect('/')
@@ -50,8 +53,16 @@ def visualizarProducto(request, codigo):
     return render(request, "paginaProducto.html", {"producto": producto})
 
 def buscarProducto(request):
-    productos = Producto.objects.all()
-    nombre = request.POST['txtBusqueda']
-    difflib.get_close_matches(nombre, productos.nombre)
+    if request.method == "POST":
+        txtBusqueda = request.POST['txtBusqueda']
+
+        resultado = Producto.objects.filter(nombre__contains = txtBusqueda)
+        
+        return render(request, "resultadoBusqueda.html", {'txtBusqueda': txtBusqueda, 'resultado': resultado})
+    else:
+        return render(request, "resultadoBusqueda.html", {})
+
+def paginaAyuda(request):
+
+    return render(request, "ayuda.html")
     
-    return render(request, "gestionCursos2.html", {"productos": productos})

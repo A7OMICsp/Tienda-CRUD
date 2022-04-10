@@ -23,6 +23,10 @@
                             min="1" max="9" placeholder="Precio (utiliza el punto '.' para añadir decimales)" required>
                     </div>
                     <div class="form-group py-1">
+                        <textarea type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" 
+                            maxlength="500" placeholder="Añade la descripcion del producto" required rows="4"></textarea>
+                    </div>
+                    <div class="form-group py-1">
                         <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                     </div>
                 </form>
@@ -32,11 +36,11 @@
 
     <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
         <h1>Listado de Productos</h1>
-        <form action="/buscarProducto/" class="d-flex">
-            <input class="form-control me-2" id="txtBusqueda" name="txtBusqueda" type="text" placeholder="&#128269; Buscar" aria-label="Search">
+        <form action="/buscarProducto/" method="POST" class="d-flex"> {% csrf_token %}
+            <input class="form-control me-2" type="search" name="txtBusqueda" placeholder="&#128269; Buscar" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
-        <div class="table-responsive py-2">
+        <div class="table-responsive py-2" style="max-height: 30rem;">
             <table class="table table-striped">
                 <thead>
                     <tr>

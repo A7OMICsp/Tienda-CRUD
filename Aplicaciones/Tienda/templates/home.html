@@ -1,7 +1,7 @@
 {% extends "./base.html" %} 
 {% load static %} 
 
-{% block title %} Gestión de Cursos {% endblock %} 
+{% block title %} Página de Inicio {% endblock %} 
 
 {% block body %}
 
@@ -11,11 +11,7 @@
     <div class="card-body">
         <h5 class="card-title">{{c.nombre}}</h5>
         <p class="card-text">{{c.precio}}€</p>
-        <a href="paginaProducto/{{c.codigo}}" class="btn btn-success" style="margin-right: 1rem">Ver</a>
-        <div style="float: right">
-            <a href="/edicionProducto/{{c.codigo}}" class="btn btn-primary">Editar</a>
-            <a href="/eliminarProducto/{{c.codigo}}" class="btn btn-danger">Eliminar</a>
-        </div>
+        <a href="paginaProducto/{{c.codigo}}" class="btn btn-success" style="width: 19.9rem; max-width: 40rem;" >Ver</a>
     </div>
 </div>
 {% endfor %}

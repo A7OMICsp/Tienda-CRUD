@@ -23,6 +23,10 @@
                             min="1" placeholder="{{producto.precio}} (utiliza el punto en lugar de coma)" required>
                     </div>
                     <div class="form-group py-1">
+                        <textarea type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" 
+                            maxlength="500" placeholder="Añade la descripcion del producto" required rows="4">{{producto.descripcion}}</textarea>
+                    </div>
+                    <div class="form-group py-1">
                         <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                     </div>
                 </form>

@@ -1,0 +1,63 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block title %} Ayuda {% endblock %}
+
+{% block body %}
+
+<div class="accordion" id="accordionExample">
+    <h1>FAQ</h1>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Añadir productos
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Para <strong>añadir productos</strong> dir&iacute;gete a la p&aacute;gina de &quot;Gestión&quot;. Ver&aacute;s 
+                un formulario con los campos a rellenar. Seguidamente, facilita la informaci&oacute;n requerida, introduciendo 
+                un c&oacute;digo de 6 digitos, un nombre del producto &#40;<strong>IMPORTANTE: </strong>el nombre del producto
+                debe ser el mismo que el de la foto.png para que as&iacute; puedan relacionarse correctamente y mostrarse en pantalla&#41;
+                , un precio &#40;en caso de tener decimales utilizamos el punto en lugar de la coma&#41; y una descripcion finalmente.
+                Pulsa el botón &quot;Guardar&quot; para enviar los datos del producto a la base de datos.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Imagenes para los productos
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>IMPORTANTE.</strong> Al descargar la imagen png, es imprescindible nombrarla exactamente igual que el 
+                nombre asignado al producto. La foto deberá guardarse en la carpeta ./static/img/ . 
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Información
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Desarrollado por Alejandro Moscardó Vilar a día 31/03/2022.<br/><br/>
+                <strong>Contacto:</strong><br/>
+                Personal: amoscardovilar@gmail.com<br/>
+                Académico: alejandro.moscardo@ciclosformativosceu.es
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

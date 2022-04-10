@@ -6,7 +6,8 @@ class Producto(models.Model):
     codigo = models.CharField(primary_key=True, max_length=6)
     nombre = models.CharField(max_length=50)
     precio = models.FloatField()
+    descripcion = models.TextField(max_length=500, default="Producto")
 
     def __str__(self):
         texto = "{0} ({1})"
-        return texto.format(self.nombre, self.precio)
+        return texto.format(self.nombre, self.precio, self.descripcion)

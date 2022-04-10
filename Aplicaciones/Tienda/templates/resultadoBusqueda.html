@@ -1,0 +1,67 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block title %} Búsqueda {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" style="margin: auto;">
+        <h1>Listado de Productos</h1>
+        
+        {% if txtBusqueda %}
+        
+        <form action="/buscarProducto/" method="POST" class="d-flex"> {% csrf_token %}
+            <input class="form-control me-2" type="search" name="txtBusqueda" placeholder="&#128269; Buscar" value="{{txtBusqueda}}" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+
+        
+        <br/>
+
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><i class="gg-image" style="margin-left: 10px;"></i></th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th colspan="3">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for res in resultado %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td style="width: 4rem;">
+                            <img src="../static/img/{{res.nombre}}.png">
+                        </td>
+                        <td>{{res.codigo}}</td>
+                        <td>{{res.nombre}}</td>
+                        <td>{{res.precio}}€</td>
+                        <td><a href="/paginaProducto/{{res.codigo}}" class="btn btn-success">Ver</a></td>
+                        <td><a href="/edicionProducto/{{res.codigo}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="/eliminarProducto/{{res.codigo}}" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+
+        <h1 style="margin-top: 4rem;">Hey, te has olvidado de introducir un producto!!</h1>
+
+        {% endif %}
+
+        <a href="/gestionCursos/" class="btn btn-dark">Volver a Gestión</a>
+        <a href="/gestionCursos/" class="btn btn-dark" style="float: right;">Ir a Home &#10132;</a>
+    </div>
+</div>
+<style>
+    img {
+        width: 100%;
+    }
+</style>
+
+{% endblock %}
